@@ -154,10 +154,9 @@ plot_distribution(df['race'])
 ```
 
 
-<iframe src="/assets/plots/04-multi-output/pie_race.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" 
-height="500" width="100%" loading="lazy"></iframe>
-
-
+<div style="width: 100%; text-align: center">
+    <img style='width: 80%; object-fit: contain' src="/images/pie_race.png"/>
+</div>
 
 Having a quick glance at this plot, we can see that almost half of the samples are from the white race, so we can expect this group to have a great accuracy. Other races such as black, indian and asian also show a good number of samples, probably leading us to good accuracy numbers as well. The race 'others' (hispanics, latinos, etc) on the other side, show a small number of samples, being more likely to have a small accuracy.
 
@@ -171,8 +170,9 @@ plot_distribution(df['gender'])
 ```
 
 
-<iframe src="/assets/plots/04-multi-output/pie_gender.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" 
-height="500" width="100%" loading="lazy"></iframe>
+<div style="width: 100%; text-align: center">
+    <img style='width: 80%; object-fit: contain' src="/images/pie_gender.png"/>
+</div>
 
 For both male and female samples, we have quite a good balanced number of records, so we should have a great accuracy for both classes when using our model.
 
@@ -192,8 +192,10 @@ fig.show()
 ```
 
 
-<iframe src="/assets/plots/04-multi-output/hist_age.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" 
-height="500" width="100%" loading="lazy"></iframe>
+
+<div style="width: 100%; text-align: center">
+    <img style='width: 80%; object-fit: contain' src="/images/hist_age.png"/>
+</div>
 
 
 We can also display this same plot in a pie plot. Let's group the age column into bins and then plot it with a pie chart
@@ -208,8 +210,10 @@ plot_distribution(age_binned)
 ```
 
 
-<iframe src="/assets/plots/04-multi-output/pie_age.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" 
-height="500" width="100%" loading="lazy"></iframe>
+
+<div style="width: 100%; text-align: center">
+    <img style='width: 80%; object-fit: contain' src="/images/pie_age.png"/>
+</div>
 
 
 We can observe that our dataset is mostly composed of individuals which age varies between 20 and 30 years, followed by individuals ranging from 30-40 years and then 40-60 years old. These groups represent around 70% of our dataset, so we can believe that we are going to have a good accuracy on predicting individuals in these ranges.
@@ -436,8 +440,9 @@ Let's give a look into our model structure, to have a better understanding of wh
 
 <br/>
 
+
 <div style="width: 100%; text-align: center">
-    <img style='width: 100%; object-fit: contain' src="/assets/images/04-multi-output/model.png"/>
+    <img style='width: 80%; object-fit: contain' src="/images/model.png"/>
 </div>
 
 <br/>
@@ -527,8 +532,10 @@ fig.update_layout(height=500,
 fig.show()
 ```
 
-<iframe src="/assets/plots/04-multi-output/acc_race.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" 
-height="500" width="100%" loading="lazy"></iframe>
+
+<div style="width: 100%; text-align: center">
+    <img style='width: 80%; object-fit: contain' src="/images/acc_race.png"/>
+</div>
 
 
 We can see that by epoch 50 our model stabilizes itself on the validation set, only increasing on the training one, with an accuracy of approximately 80%.
@@ -561,8 +568,10 @@ fig.update_layout(height=500,
 fig.show()
 ```
 
-<iframe src="/assets/plots/04-multi-output/acc_gender.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" 
-height="500" width="100%" loading="lazy"></iframe>
+
+<div style="width: 100%; text-align: center">
+    <img style='width: 80%; object-fit: contain' src="/images/acc_gender.png"/>
+</div>
 
 
 Similarly to the race feature, we can see that our model is able to learn most of the patterns to properly predict the gender from a given individual by the 30th epoch, with an accuracy of approximately 90%.
@@ -595,8 +604,10 @@ fig.show()
 ```
 
 
-<iframe src="/assets/plots/04-multi-output/mae_age.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" 
-height="500" width="100%" loading="lazy"></iframe>
+
+<div style="width: 100%; text-align: center">
+    <img style='width: 80%; object-fit: contain' src="/images/mae_age.png"/>
+</div>
 
 
 In the task of predicting the age feature, we can see that our model takes around 60 epochs to properly stabilize its learning process, with a mean absolute error of 0.09.
@@ -628,8 +639,10 @@ fig.show()
 
 
 
-<iframe src="/assets/plots/04-multi-output/overall_loss.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" 
-height="500" width="100%" loading="lazy"></iframe>
+
+<div style="width: 100%; text-align: center">
+    <img style='width: 80%; object-fit: contain' src="/images/overall_loss.png"/>
+</div>
 
 We can notice that by the epoch 50 our model starts to stabilize with a loss value of approximately 1.4. There is also a peak in the loss curve which does appear in the Mean Absolute Error for the age feature, which could explain the influence on the learning of the age feature on the overall loss.
 
@@ -740,8 +753,9 @@ R2 score for age:  0.5823979466456328
 
 Below we will plot some examples of the performed predictions generated by our model. We can clearly see that our model is really good at predicting gender, race and age, with some minor mistakes for the age feature.
 
+
 <div style="width: 100%; text-align: center">
-    <img style='width: 100%; object-fit: contain' src="/assets/images/04-multi-output/preds.png"/>
+    <img style='width: 80%; object-fit: contain' src="/images/preds.png"/>
 </div>
 
 <br/>
