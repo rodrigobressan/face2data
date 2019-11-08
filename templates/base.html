@@ -1,0 +1,92 @@
+<!doctype html>
+
+<!--path, id, label -->
+{% set navigation_bar = [
+('/', 'index', 'Try'),
+('/how_it_works', 'how', 'How it works'),
+('/dataset', 'dataset', 'Dataset'),
+('/source', 'source', 'Source code')
+] -%}
+{% set active_page = active_page|default('index') -%}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+          content="Select a image containing a persons face, and we will use our pretrained model to estimate its age, gender and race.">
+    <meta name="author" content="Rodrigo Bresan">
+    <title>Person detector</title>
+
+    <script src="https://kit.fontawesome.com/cdca6a9498.js" crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='cover.css') }}">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <nav class="nav nav-masthead justify-content-center">
+
+                {% for href, id, caption in navigation_bar %}
+
+                {% if id == active_page %}
+                <a class="nav-link active" href="{{ href|e }}">{{ caption|e }}</a>
+                {% else %}
+                <a class="nav-link" href="{{ href|e }}">{{ caption|e }}</a>
+                {% endif %}
+
+                {% endfor %}
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="inner cover">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Made with <i class="fas fa-mug-hot"></i> by <a href="https://github.com/bresan"
+                                                              target="_blank">@bresan</a></p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

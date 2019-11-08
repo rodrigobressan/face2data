@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block content %}
+<h1 class="cover-heading">Select your image</h1>
+<p class="lead">Select a image containing a persons face, and we will use our pretrained model to estimate its
+    <b>age, gender and race</b>.</p>
+<p class="lead">
+
+    <label>
+        <input type="file" id="image" accept="image/*" style="display: none;">
+        <a class="btn btn-lg btn-secondary">Select image</a>
+    </label>
+
+</p>
+
+<div id="results">
+    <div class="image_content">
+        <img src="" alt="" id="imageContainer"/>
+    </div>
+    <div class="class_content">
+        <img src="{{ url_for('static', filename='loading.gif') }}" alt="" id="loadingGif">
+        <p id="resultAge">
+        </p>
+        <p id="resultGender">
+        </p>
+        <p id="resultRace">
+        </p>
+    </div>
+</div>
+
+{% endblock %}
