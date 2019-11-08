@@ -2,14 +2,74 @@
 {% set active_page = "how" %}
 {% block content %}
 <h1 class="cover-heading">How it works</h1>
-<p class="lead">Select a image containing a persons face, and we will use our pretrained model to estimate its
-    <b>age, gender and race</b>.</p>
+<p class="lead">
+    Have you ever heard of <a class="link" href="https://en.wikipedia.org/wiki/Artificial_neural_network">Artificial
+    Neural Networks</a>? Besides the whole hype around this term, that is pretty much what we are using in this project.
+    <br/><br/>
+    By using a large dataset to train (in other words, to teach) a Neural Network how to distinguish between different
+    genders and races, as well as to estimate the age of a given person, we are then able to predict these
+    characteristics
+    on previously unknown faces. Pretty cool, isn't it?
+
+    <br/><br/>
+    After this brief introduction, if you are interested in still learning about Neural Networks, I highly recommend the
+    <a class="link" href="https://www.reddit.com/r/learnmachinelearning/">/r/learnmachinelearning/</a> subreddit.
+
+    Below I'll dive a little bit more into the details of this project, so if you don't understand something, feel free
+    to
+    reach me for some help.
+</p>
+
+<br/>
+<h2>The training phase</h2>
+
 <p class="lead">
 
-    <label>
-       Lorem ipsum dolor...
-    </label>
+    Our Neural Network was composed of three major branches, one for each of our features. We have used a default set of
+    hidden layers, based on the
+    stacking of several Conv2D with ReLU activation, followed by a Batch Normalization, then a MaxPooling and finally a
+    Dropout layer.
+
+    The full Neural Network architecture can be seen below:
+
+    <br/>
+    <br/>
+
+    <img width="30%" src="https://rodrigobresan.com/assets/images/04-multi-output/model.png"/>
+
+    <br/><br/>
+
+    We performed our training phase by adopting an Adam optimizer with a learning rate of 1e-4 and a decay based on the
+    initial learning rate divided by the number of epochs.
+    A hundred epochs were used to train our model, in which we have seen that we had an efficient learning process,
+    asserted
+    by plotting both the accuracy and loss curves, as shown below:
 
 </p>
+
+
+<div align="center">
+    <iframe src="https://rodrigobresan.com/assets/plots/04-multi-output/acc_race.html" id="igraph" scrolling="no"
+            style="border:none;" seamless="seamless" height="500" width="630" loading="lazy"></iframe>
+</div>
+
+
+<div align="center">
+    <iframe src="https://rodrigobresan.com/assets/plots/04-multi-output/acc_gender.html" id="igraph" scrolling="no"
+            style="border:none;" seamless="seamless" height="500" width="630" loading="lazy"></iframe>
+</div>
+
+
+<div align="center">
+    <iframe src="https://rodrigobresan.com/assets/plots/04-multi-output/mae_age.html" id="igraph" scrolling="no"
+            style="border:none;" seamless="seamless" height="500" width="630" loading="lazy"></iframe>
+</div>
+
+<div align="center">
+    <iframe src="https://rodrigobresan.com/assets/plots/04-multi-output/overall_loss.html" id="igraph" scrolling="no"
+            style="border:none;" seamless="seamless" height="500" width="630" loading="lazy"></iframe>
+</div>
+
+This is just a quick overview around the project, if you are interested into more details, do not hesitate to check the <a class="link" href="https://github.com/bresan/keras-multi-output-model-utk-face/">project repository</a>.
 
 {% endblock %}

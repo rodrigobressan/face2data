@@ -94,13 +94,14 @@ def predict():
 
 @app.route('/how_it_works')
 def how_it_works():
-    print('CU')
     return render_template('how.html')
-#
-#
-# @app.route('/dataset')
-# def dataset():
-#     return render_template('dataset.html')
+
+
+@app.route('/dataset')
+def dataset():
+    return render_template('dataset.html')
+
+
 #
 #
 # @app.route('/source')
@@ -123,4 +124,3 @@ if __name__ == '__main__':
 if __name__ == 'app':
     print('Loading Keras model')
     model = load_model()
-    # app.run(host='0.0.0.0', port=7000, debug=True)
