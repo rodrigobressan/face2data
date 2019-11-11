@@ -14,9 +14,9 @@ function get_prediction(image) {
 
             loadingGif.style.display = "none";
 
-            resultAge.innerHTML = `Age: ${age}`;
-            resultGender.innerHTML = `Gender: ${gender}`;
-            resultRace.innerHTML = `Race: ${race}`;
+            const text = `It seems that the provided picture is related to a <b>${race} ${gender}</b>, around its <b>${age} years old</b>.` +
+            '<br/><br/>Take note that these predictions may not be perfectly accurate due to the small amount of samples used for training (around 20k). In case you find any issues, feel free to open an issue on the project repository.'
+            resultsText.innerHTML = text;
         });
     })
     .catch(error => {
@@ -30,9 +30,7 @@ function imageUploaded(event) {
 
     if (!image) return;
 
-    resultAge.innerHTML = "";
-    resultGender.innerHTML = "";
-    resultRace.innerHTML = "";
+    resultsText.innerHTML = "";
 
     loadingGif.style.display = "visible";
     imageContainer.src = window.URL.createObjectURL(image);
@@ -41,9 +39,7 @@ function imageUploaded(event) {
 }
 
 function ready() {
-    resultAge = document.querySelector("#resultAge");
-    resultGender = document.querySelector("#resultGender");
-    resultRace = document.querySelector("#resultRace");
+    resultsText = document.querySelector("#results_text");
 
     imageContainer = document.querySelector("#imageContainer");
     loadingGif = document.querySelector("#loadingGif");

@@ -46,6 +46,7 @@ body {
   max-width: 52em;
 }
 
+
 /*
  * Header
  */
@@ -58,6 +59,7 @@ body {
 }
 
 .nav-masthead .nav-link {
+  margin-top: 10px;
   padding: .25rem 0;
   font-weight: 700;
   color: rgba(255, 255, 255, .5);

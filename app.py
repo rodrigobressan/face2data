@@ -79,12 +79,15 @@ def predict():
     race = prediction[1].argmax(axis=-1)[0]
     gender = prediction[2].argmax(axis=-1)[0]
 
-    print(age, race, gender)
+    if age < 0:
+        age = 1
+    elif age > 100:
+        age = 100
 
     # we could also just return a rendered template, but in this case I opted to just return a json object and parse it
     # on the screen
     response = {
-        'age': "%d years old" % (age * 100),
+        'age': int(age * 100),
         'race': dataset_dict['race_id'][race],
         'gender': dataset_dict['gender_id'][gender]
     }
