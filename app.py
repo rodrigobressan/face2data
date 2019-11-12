@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, make_response
 from io import BytesIO
 import tensorflow as tf
 from keras.models import model_from_json
@@ -30,10 +30,6 @@ dataset_dict = {
         1: 'female'
     }
 }
-
-dataset_dict['gender_alias'] = dict((g, i) for i, g in dataset_dict['gender_id'].items())
-dataset_dict['race_alias'] = dict((g, i) for i, g in dataset_dict['race_id'].items())
-
 
 def pre_process_image(img_bytes):
     """
@@ -72,17 +68,17 @@ def predict_on_image(image):
 @app.route('/predict', methods=['POST'])
 def predict():
     image = request.files['image'].read()
-    image = pre_process_image(image)
+
+    # check if the provided image is a valid one
+    try:
+        image = pre_process_image(image)
+    except IOError:
+        return make_response({}, 400)
 
     prediction = predict_on_image(image)
     age = prediction[0].reshape(-1)[0]
     race = prediction[1].argmax(axis=-1)[0]
     gender = prediction[2].argmax(axis=-1)[0]
-
-    if age < 0:
-        age = 1
-    elif age > 100:
-        age = 100
 
     # we could also just return a rendered template, but in this case I opted to just return a json object and parse it
     # on the screen
@@ -92,7 +88,7 @@ def predict():
         'gender': dataset_dict['gender_id'][gender]
     }
 
-    return jsonify(response)
+    return make_response(jsonify(response), 200)
 
 
 @app.route('/how_it_works')
@@ -104,18 +100,15 @@ def how_it_works():
 def dataset():
     return render_template('dataset.html')
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
 if __name__ == '__main__':
-    print('Loading Keras model')
     model = load_model()
-
-    print('Starting Flask server')
     app.run(debug=True)
 
 if __name__ == 'app':
-    print('Loading Keras model')
     model = load_model()
