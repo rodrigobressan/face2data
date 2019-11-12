@@ -104,14 +104,6 @@ def how_it_works():
 def dataset():
     return render_template('dataset.html')
 
-
-#
-#
-# @app.route('/source')
-# def source():
-#     return render_template('source.html')
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
