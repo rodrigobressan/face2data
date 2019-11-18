@@ -1,46 +1,62 @@
-# Face2Data: Extract meaningful information from a person face in less than a second
+# Face2Data
 
-## Overview
+## Extract information from a person face in less than a second
 
-This project is intended to showcase the adoption of Keras multi-output models to predict age, gender and race from a given persons face. The generated model is
-served through a REST API with Flask.
+This project is intended to showcase the usage of a Keras multi-output model to predict age, gender and ethnicity from a given persons face. The generated model is served through a REST API provided by Flask running on Python 3.6.
+
+## Running the project
+
+A live demo of application is available on the [https://utk-face-multi-output.herokuapp.com/](https://utk-face-multi-output.herokuapp.com/) address (it may take some time to load due to Heroku's free plan), but if you instead would like to run it locally, below are the needed steps:
+
+In order to run this project locally, you first need to clone this repository into our machine and then install the required dependencies. The project dependencies are located in the requirements.txt file. You can install them by using [PiP](https://pip.pypa.io/en/stable/), as below:
+
+```bash
+pip install -r requirements.txt
+```
+
+After this, navigate to the project root directory and run the following command on the terminal to start the application:
+
+```bash
+flask run
+```
+
+This should start a new server on the port 5000. You can then access the applicaton by opening the address [http://localhost:5000/](http://localhost:5000/) on the browser.
+
 
 ## The dataset
 
- The UTKFace dataset is a large dataset composed of over 20 thousand face images with their respective annotations of age, gender and ethnicity. The images are properly cropped into the face region, but display some variations in pose, illumination, resolution, etc. If you want to know more about this dataset, please check their website.
-
-<div style="width: 100%; text-align: center">
-    <img style='width: 80%; object-fit: contain' src="/images/utk_dataset.jpg"/>
-</div>
+The UTKFace dataset is a large dataset composed of over 20 thousand face images with their respective annotations of age, gender and ethnicity. The images are properly cropped into the face region, but display some variations in pose, illumination, resolution, etc. If you want to know more about this dataset, please check their [website](https://pip.pypa.io/en/stable/).
 
 <br/>
 
 ## Training phase
 
-Our Neural Network is composed of three major branches, one for each of the features we are trying to predict. We have used a default set of hidden layers, based on the stacking of several Conv2D with ReLU activation, followed by a Batch Normalization, then a MaxPooling and finally a Dropout layer. The full Neural Network architecture can be seen below:
-
-
-<div style="width: 100%; text-align: center">
-    <img style='width: 80%; object-fit: contain' src="/images/model.png"/>
-</div>
+Our Neural Network is composed of three major branches, one for each of the features we are trying to predict. We have used a default set of hidden layers, based on the stacking of several Conv2D with ReLU activation, followed by a Batch Normalization, then a MaxPooling and finally a Dropout layer.
 
 We performed our training phase by adopting an Adam optimizer with a learning rate of 1e-4 and a decay based on the initial learning rate divided by the number of epochs. A hundred epochs were used to train our model, in which we have seen that we had an efficient learning process, asserted by plotting both the accuracy and loss curves, as shown below:
 
+### Accuracy for gender feature
 
 <div style="width: 100%; text-align: center">
     <img style='width: 80%; object-fit: contain' src="/images/acc_gender.png"/>
 </div>
 
 
+### Accuracy for race feature
+
 <div style="width: 100%; text-align: center">
     <img style='width: 80%; object-fit: contain' src="/images/acc_race.png"/>
 </div>
 
 
+### Mean Absolute Error for age feature
+
 <div style="width: 100%; text-align: center">
     <img style='width: 80%; object-fit: contain' src="/images/mae_age.png"/>
 </div>
 
+
+### Overall loss
 
 <div style="width: 100%; text-align: center">
     <img style='width: 80%; object-fit: contain' src="/images/overall_loss.png"/>
@@ -48,9 +64,9 @@ We performed our training phase by adopting an Adam optimizer with a learning ra
 
 ## TODO
 
-- Add some unit tests for both Flask application and model predictions
-- Setup Continuous Integration and Deployment
-- Add SHAP for model explainability
+- Add unit tests for both Flask application and model predictions
+- Setup Continuous Integration and Deployment to automatically deploy on Heroku upon a new commit
+- Add SHAP model explanations
 
 ## References
 
