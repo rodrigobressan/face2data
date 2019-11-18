@@ -1,0 +1,17 @@
+sudo: required
+env:
+language: python
+python:
+- '3.6'
+cache: pip
+before_install:
+- sudo apt-get update
+install:
+- pip install -r requirements.txt
+- pip install pytest pytest-cov
+- pip install coveralls
+- pip install mypy
+script:
+- py.test --doctest-modules
+after_success:
+- coveralls

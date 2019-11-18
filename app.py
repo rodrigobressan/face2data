@@ -31,6 +31,7 @@ dataset_dict = {
     }
 }
 
+
 def pre_process_image(img_bytes):
     """
     Used to perform some minor pre processing on the image before inputting into the network.
