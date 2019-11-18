@@ -3,7 +3,7 @@
 [![Python 3.6](https://img.shields.io/badge/python-3.6-brightgreen)](https://www.python.org/)
 [![Build Status](https://travis-ci.org/bresan/face2data.svg?branch=master)](https://travis-ci.org/bresan/face2data)
 [![Coverage Status](https://coveralls.io/repos/github/bresan/face2data/badge.svg?branch=master)](https://coveralls.io/github/bresan/face2data?branch=master)
-[![GitHub](https://img.shields.io/github/license/bresan/face2data.svg)](https://github.com/bresan/face2data/blob/master/LICENSE.md)
+[![GitHub license](https://img.shields.io/github/license/bresan/face2data)](https://github.com/bresan/face2data/blob/master/LICENSE.md)
 
 ## Extract information from a person face in less than a second
 
