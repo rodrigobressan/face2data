@@ -11,7 +11,7 @@ This project is intended to showcase the usage of a Keras multi-output model to 
 
 ## Running the project
 
-A live demo of application is available on the [https://utk-face-multi-output.herokuapp.com/](https://utk-face-multi-output.herokuapp.com/) address (it may take some time to load due to Heroku's free plan), but if you instead would like to run it locally, below are the needed steps:
+A live demo of application is available on the [https://face2data.herokuapp.com/](https://face2data.herokuapp.com/) address (it may take some time to load due to Heroku's free plan), but if you instead would like to run it locally, below are the needed steps:
 
 In order to run this project locally, you first need to clone this repository into our machine and then install the required dependencies. The project dependencies are located in the requirements.txt file. You can install them by using [PiP](https://pip.pypa.io/en/stable/), as below:
 
