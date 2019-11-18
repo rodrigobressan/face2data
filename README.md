@@ -49,7 +49,7 @@ We performed our training phase by adopting an Adam optimizer with a learning ra
 </div>
 
 
-### Mean Absoltue Error for age feature
+### Mean Absolute Error for age feature
 
 <div style="width: 100%; text-align: center">
     <img style='width: 80%; object-fit: contain' src="/images/mae_age.png"/>
@@ -65,7 +65,7 @@ We performed our training phase by adopting an Adam optimizer with a learning ra
 ## TODO
 
 - Add unit tests for both Flask application and model predictions
-- Setup Continuous Integration and Deployment to automatically deploy on Heroku uppon a new commit
+- Setup Continuous Integration and Deployment to automatically deploy on Heroku upon a new commit
 - Add SHAP model explanations
 
 ## References
