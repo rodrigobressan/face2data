@@ -1,7 +1,6 @@
 import unittest
 import os
 
-os.chdir('../')
 from face2data.app import app
 
 
