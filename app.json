@@ -1,0 +1,7 @@
+{
+  "name": "Face2Data",
+  "description": "Extract information from a person face in less than a second",
+  "repository": "https://github.com/bresan/face2data",
+  "logo": "https://raw.githubusercontent.com/bresan/face2data/master/static/face2data.png",
+  "keywords": ["python", "flask", "keras"]
+}

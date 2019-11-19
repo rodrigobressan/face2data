@@ -5,6 +5,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/bresan/face2data/badge.svg?branch=master)](https://coveralls.io/github/bresan/face2data?branch=master)
 [![GitHub license](https://img.shields.io/github/license/bresan/face2data)](https://github.com/bresan/face2data/blob/master/LICENSE.md)
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Extract information from a person face in less than a second
 
 This project is intended to showcase the usage of a Keras multi-output model to predict age, gender and ethnicity from a given persons face. The generated model is served through a REST API provided by Flask running on Python 3.6.
