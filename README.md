@@ -1,4 +1,4 @@
-# Face2Data
+![Face2Data](/static/face2data.png)
 
 [![Python 3.6](https://img.shields.io/badge/python-3.6-brightgreen)](https://www.python.org/)
 [![Build Status](https://travis-ci.org/bresan/face2data.svg?branch=master)](https://travis-ci.org/bresan/face2data)
@@ -26,7 +26,6 @@ flask run
 ```
 
 This should start a new server on the port 5000. You can then access the applicaton by opening the address [http://localhost:5000/](http://localhost:5000/) on the browser.
-
 
 ## The dataset
 
