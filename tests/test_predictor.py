@@ -29,10 +29,10 @@ class PredictorTests(unittest.TestCase):
 
             sample_path = os.path.join(self.samples_path, sample + '.png')
             with open(sample_path, "rb") as image:
-                f = image.read()
-                b = bytearray(f)
+                file = image.read()
+                img_bytes = bytearray(file)
 
-                preprocessed = pre_process_image(b)
+                preprocessed = pre_process_image(img_bytes)
                 pred_age, pred_race, pred_sex = predict_on_image(self.model, preprocessed)
 
                 age_diff = abs(int(age) - pred_age) > 20

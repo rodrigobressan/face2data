@@ -12,6 +12,6 @@ install:
 - pip install coveralls
 - pip install mypy
 script:
-- py.test --doctest-modules
+- py.test --doctest-modules --cov=face2data/
 after_success:
 - coveralls

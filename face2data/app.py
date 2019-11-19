@@ -14,8 +14,8 @@ def predict():
 
     try:
         image = pre_process_image(image)
-    except IOError:
-        return make_response({}, 400)
+    except IOError as io:
+        return make_response(jsonify({'error': io}), 400)
 
     age, race, gender = predict_on_image(model, image)
 

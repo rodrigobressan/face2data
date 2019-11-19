@@ -1,5 +1,6 @@
 import unittest
 import os
+from io import BytesIO
 
 from face2data.app import app
 
@@ -16,14 +17,11 @@ class ApiEndpointsTests(unittest.TestCase):
         app.config['DEBUG'] = False
 
         self.app = app.test_client()
-
-        # TODO load image
-
         self.assertEqual(app.debug, False)
 
     def test_prediction_page(self):
         """
-        Test if our prediction page is being properly rendered on the screen
+        Test if the prediction page is being properly rendered on the screen
         :return:
         """
         response = self.app.get('/', follow_redirects=True)
@@ -37,6 +35,22 @@ class ApiEndpointsTests(unittest.TestCase):
         """
         response = self.app.post('/predict', data=dict(var1='a', var2='b'), content_type='application/json')
         self.assertEqual(response.status_code, 400)
+
+    def test_how_it_works_page(self):
+        """
+        Test if the how it works page is being properly rendered on the screen
+        :return:
+        """
+        response = self.app.get('/how_it_works', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_dataset_page(self):
+        """
+        Test if the dataset page is being properly rendered on the screen
+        :return:
+        """
+        response = self.app.get('/dataset', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
 
 
 if __name__ == "__main__":
