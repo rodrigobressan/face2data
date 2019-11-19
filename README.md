@@ -1,12 +1,17 @@
 # Face2Data
 
+[![Python 3.6](https://img.shields.io/badge/python-3.6-brightgreen)](https://www.python.org/)
+[![Build Status](https://travis-ci.org/bresan/face2data.svg?branch=master)](https://travis-ci.org/bresan/face2data)
+[![Coverage Status](https://coveralls.io/repos/github/bresan/face2data/badge.svg?branch=master)](https://coveralls.io/github/bresan/face2data?branch=master)
+[![GitHub license](https://img.shields.io/github/license/bresan/face2data)](https://github.com/bresan/face2data/blob/master/LICENSE.md)
+
 ## Extract information from a person face in less than a second
 
 This project is intended to showcase the usage of a Keras multi-output model to predict age, gender and ethnicity from a given persons face. The generated model is served through a REST API provided by Flask running on Python 3.6.
 
 ## Running the project
 
-A live demo of application is available on the [https://utk-face-multi-output.herokuapp.com/](https://utk-face-multi-output.herokuapp.com/) address (it may take some time to load due to Heroku's free plan), but if you instead would like to run it locally, below are the needed steps:
+A live demo of application is available on the [https://face2data.herokuapp.com/](https://face2data.herokuapp.com/) address (it may take some time to load due to Heroku's free plan), but if you instead would like to run it locally, below are the needed steps:
 
 In order to run this project locally, you first need to clone this repository into our machine and then install the required dependencies. The project dependencies are located in the requirements.txt file. You can install them by using [PiP](https://pip.pypa.io/en/stable/), as below:
 
