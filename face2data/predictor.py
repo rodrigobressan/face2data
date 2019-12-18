@@ -13,8 +13,8 @@ import os
 
 print('Current dir: ', os.getcwd())
 
-DEFAULT_MODEL_PATH = '../model/model.json'
-DEFAULT_WEIGHTS_PATH = '../model/weights.h5'
+DEFAULT_MODEL_PATH = './model/model.json'
+DEFAULT_WEIGHTS_PATH = './model/weights.h5'
 
 
 class PredictionResult:
