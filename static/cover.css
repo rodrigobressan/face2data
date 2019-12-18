@@ -43,7 +43,7 @@ body {
 }
 
 .cover-container {
-  max-width: 52em;
+  max-width: 64em;
 }
 
 
@@ -96,6 +96,7 @@ body {
  */
 .cover {
   padding: 0 1.5rem;
+    margin-top: 5rem;
 }
 .cover .btn-lg {
   padding: .75rem 1.25rem;
@@ -108,4 +109,15 @@ body {
  */
 .mastfoot {
   color: rgba(255, 255, 255, .5);
+}
+
+.container {
+  width: 100%;
+}
+
+.left,
+.right {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
 }

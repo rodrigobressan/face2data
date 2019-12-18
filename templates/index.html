@@ -9,6 +9,11 @@
     Step two: there is no second step :-)
     <br/> <br/>
 
+    <b>Note: The submitted images are not going to be stored in any place, they are only used for generating the
+        predictions. You can be sure of this by checking the source code
+        of this project on <a class="link" href="https://github.com/rodrigobressan/face2data">GitHub</a>.</b>
+
+    <br/><br/>
     Interested in how it works? Refer to the <a class="link" href="/how_it_works">how it works</a> section.
 
     <br/><br/>
@@ -18,14 +23,23 @@
     </label>
 </p>
 
-<div id="results">
+<div>
     <div class="image_content">
         <img width="250px" src="" alt="" id="imageContainer"/>
     </div>
-    <div class="class_content">
-        <p id="results_text">
-        </p>
+
+    <div class="container" id="results">
+        <div class="left">
+            <div id="race_plot"></div>
+        </div>
+
+        <div class="right">
+            <div id="gender_plot"></div>
+        </div>
     </div>
+
+    <p id="age_text">
+
 </div>
 
 {% endblock %}

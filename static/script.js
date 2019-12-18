@@ -1,3 +1,50 @@
+function make_pie_plot(results, div_to_plot, title) {
+    var data = [{
+        values: Object.values(results),
+        labels: Object.keys(results),
+        type: 'pie',
+        textfont: {
+            family: 'sans serif',
+            size: 14,
+            color: '#FFFFFF'
+        }
+    }];
+
+    var layout = {
+        paper_bgcolor: "rgba(0,0,0,0)",
+        width: 500,
+        height: 500,
+        plot_bgcolor: "rgba(0,0,0,0)",
+        title: {
+            text: title,
+            font: {
+             size: 20,
+                color: '#FFFFFF'
+            }
+        },
+        showlegend: true,
+        legend: {
+            font: {
+                size: 14,
+                color: '#FFFFFF'
+            }
+        }
+    }
+
+    Plotly.newPlot(div_to_plot, data, layout, {showSendToCloud: true});
+}
+function scrollTo(element, to, duration) {
+    if (duration <= 0) return;
+    var difference = to - element.scrollTop;
+    var perTick = difference / duration * 10;
+
+    setTimeout(function() {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop === to) return;
+        scrollTo(element, to, duration - 10);
+    }, 10);
+}
+
 function get_prediction(image) {
     const formData = new FormData()
     formData.append('image', image);
@@ -10,19 +57,16 @@ function get_prediction(image) {
         response.json().then(data => {
 
             if (response.status == 200) {
-                console.log(data['age'])
+                make_pie_plot(data['race'], 'race_plot', 'Race')
+                make_pie_plot(data['gender'], 'gender_plot', 'Gender')
+
+                results_div = document.getElementById("results");
+                scrollTo(document.documentElement, results_div.offsetTop, 600);
+
                 let age = data['age']
-                console.log(age)
-                let gender = data['gender']
-                let race = data['race']
-
-                age = age < 0 ? 1 : age
-                age = age > 100 ? 100 : age
-
-                const text = `It seems that the provided picture is related to a <b>${race} ${gender}</b>, around its <b>${age} years old</b>.` +
-                '<br/><br/>Take note that these predictions may not be perfectly accurate due to the small amount of samples used for training (around 20k). In case you find any issues, feel free to open an issue on the project repository.'
-
-                resultsText.innerHTML = text;
+                let min_age = age - 10
+                let max_age = age
+                resultsText.innerHTML = 'The predictions may not be perfectly accurate due to the small number of samples used for training (around 20 thousand images).';
              } else if (response.status == 400) {
                 resultsText.innerHTML = '<h2>There was an error processing your request. Make sure you provided a valid image and try again.</h2>'
                 imageContainer.style.visibility = 'hidden'
@@ -50,7 +94,7 @@ function imageUploaded(event) {
 }
 
 function ready() {
-    resultsText = document.querySelector("#results_text");
+    resultsText = document.querySelector("#age_text");
 
     imageContainer = document.querySelector("#imageContainer");
 
@@ -63,3 +107,4 @@ document.addEventListener("DOMContentLoaded", ready);
 let imageContainer;
 let imageClass;
 let imageConfidence;
+
