@@ -1,9 +1,9 @@
 ![Face2Data](/static/face2data.png)
 
 [![Python 3.6](https://img.shields.io/badge/python-3.6-brightgreen)](https://www.python.org/)
-[![Build Status](https://travis-ci.org/bresan/face2data.svg?branch=master)](https://travis-ci.org/bresan/face2data)
-[![Coverage Status](https://coveralls.io/repos/github/bresan/face2data/badge.svg?branch=master)](https://coveralls.io/github/bresan/face2data?branch=master)
-[![GitHub license](https://img.shields.io/github/license/bresan/face2data)](https://github.com/bresan/face2data/blob/master/LICENSE.md)
+[![Build Status](https://travis-ci.org/rodrigobressan/face2data.svg?branch=master)](https://travis-ci.org/bresan/face2data)
+[![Coverage Status](https://coveralls.io/repos/github/rodrigobressan/face2data/badge.svg?branch=master)](https://coveralls.io/github/bresan/face2data?branch=master)
+[![GitHub license](https://img.shields.io/github/license/rodrigobressan/face2data)](https://github.com/rodrigobressan/face2data/blob/master/LICENSE.md)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
