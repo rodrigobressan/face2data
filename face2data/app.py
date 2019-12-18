@@ -17,15 +17,17 @@ def predict():
     except IOError as io:
         return make_response(jsonify({'error': io}), 400)
 
-    age, race, gender = predict_on_image(model, image)
+    prediction = predict_on_image(model, image)
+    #
+    # response = {
+    #     'age': prediction,
+    #     'race': prediction.race,
+    #     'gender': prediction.gender,
+    #     'race_confidence': prediction.race_confidence,
+    #     'gender_confidence': prediction.gender_confidence
+    # }
 
-    response = {
-        'age': age,
-        'race': race,
-        'gender': gender
-    }
-
-    return make_response(jsonify(response), 200)
+    return make_response(jsonify(prediction), 200)
 
 
 @app.route('/how_it_works')
