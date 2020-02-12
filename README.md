@@ -68,6 +68,30 @@ We performed our training phase by adopting an Adam optimizer with a learning ra
     <img style='width: 80%; object-fit: contain' src="/images/overall_loss.png"/>
 </div>
 
+## Docker
+
+If you want to quickly build and run the server, you can use Docker.
+First, install [docker](https://docs.docker.com/install/) for your architecture.
+Then build the container:
+
+
+```bash
+$ docker build -t face2data .
+```
+
+The container will use gunicorn to deploy the application on port 5000. You
+thus should run the container and map this port to your host:
+
+
+```bash
+$ docker run -p 5000:5000 face2data
+```
+
+You can then open your browser to [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+to see the interface.
+
+![static/docker-server.png](static/docker-server.png)
+
 ## TODO
 
 - Add unit tests for both Flask application and model predictions
