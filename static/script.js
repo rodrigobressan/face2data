@@ -33,6 +33,7 @@ function make_pie_plot(results, div_to_plot, title) {
 
     Plotly.newPlot(div_to_plot, data, layout, {showSendToCloud: true});
 }
+
 function scrollTo(element, to, duration) {
     if (duration <= 0) return;
     var difference = to - element.scrollTop;
