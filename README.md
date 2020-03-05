@@ -13,6 +13,32 @@ This project is intended to showcase the usage of a Keras multi-output model to 
 
 ## Running the project
 
+### Using Docker
+
+If you want to quickly build and run the server, you can use Docker.
+First, install [docker](https://docs.docker.com/install/) for your architecture.
+Then build the container:
+
+
+```bash
+$ docker build -t face2data .
+```
+
+The container will use gunicorn to deploy the application on port 5000. You
+thus should run the container and map this port to your host:
+
+
+```bash
+$ docker run -p 5000:5000 face2data
+```
+
+You can then open your browser to [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+to see the interface.
+
+![static/docker-server.png](static/docker-server.png)
+
+### From Source
+
 A live demo of application is available on the [https://face2data.herokuapp.com/](https://face2data.herokuapp.com/) address (it may take some time to load due to Heroku's free plan), but if you instead would like to run it locally, below are the needed steps:
 
 In order to run this project locally, you first need to clone this repository into our machine and then install the required dependencies. The project dependencies are located in the requirements.txt file. You can install them by using [PiP](https://pip.pypa.io/en/stable/), as below:
