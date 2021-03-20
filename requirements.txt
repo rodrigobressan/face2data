@@ -6,7 +6,7 @@ gunicorn==19.9.0
 h5py==2.10.0
 html5lib==0.9999999
 itsdangerous==1.1.0
-Jinja2==2.10.3
+Jinja2==2.11.3
 Keras==2.2.4
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
