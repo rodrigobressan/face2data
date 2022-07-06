@@ -4,7 +4,7 @@ Click==7.0
 Flask==1.1.1
 gunicorn==19.9.0
 h5py==2.10.0
-html5lib==0.9999999
+html5lib==0.999999999
 itsdangerous==1.1.0
 Jinja2==2.10.3
 Keras==2.2.4
